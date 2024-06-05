@@ -4,7 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arquivo da Investigação</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #search-bar {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #search-button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #search-button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: red;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: black;
+            color: green;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #close-popup {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #close-popup:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -22,6 +102,24 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#search-button').click(function() {
+                var query = $('#search-bar').val().toLowerCase();
+                if (query === 'cellbit' || query === 'oaffebs' || query === 'admin' || query === 'geometry dash') {
+                    $('#result').text('Wrong place');
+                } else if (query === 'blue') {
+                    $('#popup-text').text("Papers killed it, Papers are teaching us what happened, they should have warned us about the papers, it is just weird seeing that we, who were supposed to get all there is to know, know so little and they said we already know too much, your answer is paper");
+                    $('#popup').css('display', 'flex');
+                } else {
+                    $('#result').text('Wrong');
+                }
+            });
+
+            $('#close-popup').click(function() {
+                $('#popup').css('display', 'none');
+            });
+        });
+    </script>
 </body>
 </html>
